@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main(){
+	int height[] = {1,8,6,2,5,4,8,3,7};
+	int n = sizeof(height)/sizeof(int);
+	int lp = 0,rp = n-1;
+	int ans=0;
+	
+	while(lp<rp){
+		width = rp-lp;
+		height = min(height[lp],height[rp]);
+		
+		int water = width*height;
+		
+		ans = max(water,ans);
+		
+		height[lp]<height[rp] ? lp++ : rp--;
+	}
+}
