@@ -24,9 +24,9 @@ int bsusingrecursion(vector<int> &arr,int target,int start,int end){
 	if(start<=end){
 		int mid = start+(end-start)/2;
 		if(target>arr[mid]){
-			bsusingrecursion(arr,target,mid+1,end);
+			return bsusingrecursion(arr,target,mid+1,end);
 		}else if(target<arr[mid]){
-			bsusingrecursion(arr,target,start,mid-1);
+			return bsusingrecursion(arr,target,start,mid-1);
 		}else{
 			return mid;
 		}
