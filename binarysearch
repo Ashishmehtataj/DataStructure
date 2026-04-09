@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int bs(vector<int>&arr,int target){
+	int start = 0,end = arr.size()-1;
+	int mid = start + (end-start)/2;
+	
+	while(start<=end){
+		int mid = start + (end-start)/2;
+		if(target>arr[mid]){
+			start = mid+1;
+		}else if(target<arr[mid]){
+			end = mid-1;
+		}else{
+			return mid;
+		}
+	}
+	return -1;
+}
+
+int bsusingrecursion(vector<int> &arr,int target,int start,int end){
+	if(start<=end){
+		int mid = start+(end-start)/2;
+		if(target>arr[mid]){
+			bsusingrecursion(arr,target,mid+1,end);
+		}else if(target<arr[mid]){
+			bsusingrecursion(arr,target,start,mid-1);
+		}else{
+			return mid;
+		}
+	}
+}
+
+
+int main(){
+	vector<int> arr = {10,2,3,1,25,185,7,44,26};
+	sort(arr.begin(),arr.end());
+	cout<<"Target element using without recursion ";
+	cout<<bs(arr,44);
+	cout<<endl;
+	cout<<"Target element using recursion function ";
+	int end = arr.size()-1;
+	cout<<bsusingrecursion(arr,44,0,end);
+}
